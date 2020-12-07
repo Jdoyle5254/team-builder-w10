@@ -1,19 +1,22 @@
 // TODO: Write code to define and export the Intern class.  HINT: This class should inherit from Employee.
-const Shape = require("./shape");
+const Employee = require("./Employee");
 
-class Rectangle extends Shape {
-  constructor(sideA, sideB) {
-    const area = sideA * sideB;
-    const perimeter = sideA * 2 + sideB * 2;
-
-    super(area, perimeter);
-    this.sideA = sideA;
-    this.sideB = sideB;
+class Intern extends Employee {
+  constructor(name, id, email, role, school) {
+    super(name, id, email, role);
+    this.school = school;
+     
   }
 }
 
-const rectangle = new Rectangle(12, 9);
-rectangle.printInfo();
+const int = new Intern ("jack", 096, "jack@gmail.com", "Intern", "Northwestern") 
+
+int.printInfo();
+int.
+  
+
+
+ 
 
 In addition to `Employee`'s properties and methods, `Intern` will also have:
 

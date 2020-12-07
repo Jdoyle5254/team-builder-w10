@@ -1,24 +1,28 @@
 // TODO: Write code to define and export the Engineer class.  HINT: This class should inherit from Employee.
-const Shape = require("./shape");
+const Employee = require("./Employee");
 
-class Rectangle extends Shape {
-  constructor(sideA, sideB) {
-    const area = sideA * sideB;
-    const perimeter = sideA * 2 + sideB * 2;
-
-    super(area, perimeter);
-    this.sideA = sideA;
-    this.sideB = sideB;
-  }
+class Engineer extends Employee {
+  constructor(name, id, email, role, github ) {
+    super(name, id, email, role);
+    this.github = github;
+         
+  };
+  getGitHub() {
+    console.log('this', this);
+    console.log(`This person's GitHub: https://github.com/${this.github}`);
+     
+    };   
 }
 
-const rectangle = new Rectangle(12, 9);
-rectangle.printInfo();
+const eng = new Engineer ("jack", 096, "jack@gmail.com", "Engineer", "jackgithub") 
 
-`Engineer` will also have:
+eng.printInfo();
+eng.getGitHub(); 
 
-* github  // GitHub username
+// `Engineer` will also have:
 
-* getGithub()
+// * github  // GitHub username
 
-* getRole() // Overridden to return 'Engineer'
+// * getGithub()
+
+// * getRole() // Overridden to return 'Engineer'

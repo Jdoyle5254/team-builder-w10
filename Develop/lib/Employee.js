@@ -10,10 +10,10 @@ class Employee {
   
     printInfo() {
       console.log('this', this)
-      console.log(`This person's role is ${this.role}`);
-      console.log(`This person's name  ${this.name}`);
+      console.log(`This person's role is the ${this.role}`);
+      console.log(`This person's name is  ${this.name}`);
       console.log(`This person's id  ${this.id}`);
-      console.log(`This person's email  ${this.email}`);
+      console.log(`This person's email is ${this.email}`);
       }
     }
   
