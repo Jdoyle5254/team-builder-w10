@@ -1,24 +1,32 @@
 // TODO: Write code to define and export the Employee class
 class Employee {
-    constructor(area, perimeter) {
-      this. ;
-      this. ;
+    constructor(name, id, email, role) {
+      this.name=name;
+      this.id=id;
+      this.email=email;
+      this.role=role; 
+
     }
   
     printInfo() {
       console.log('this', this)
-      for (const key in this) {
-        console.log(`${key}: ${this[key]}`);
+      console.log(`This person's role is ${this.role}`);
+      console.log(`This person's name  ${this.name}`);
+      console.log(`This person's id  ${this.id}`);
+      console.log(`This person's email  ${this.email}`);
       }
     }
-  }
   
-  module.exports = Shape;
+  
+  module.exports = Employee;
 
-  * name
-  * id
-  * email
-  * getName()
-  * getId()
-  * getEmail()
-  * getRole() // Returns 'Employee'
+  const emp = new Employee ("Jen", 001, "jd@gmail.com", "employee")
+  emp.printInfo()  
+
+  // * name
+  // * id
+  // * email
+  // * getName()
+  // * getId()
+  // * getEmail()
+  // * getRole() // Returns 'Employee'
