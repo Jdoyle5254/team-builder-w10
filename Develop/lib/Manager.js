@@ -2,22 +2,25 @@
 const Employee = require("./Employee");
 
 class Manager extends Employee {
-  constructor(name, id, email, role, officeNumber) {
-    super(name, id, email, role);
-    this.officeNumber = officeNumber;
-     
+  constructor(firstname, lastname, id, email, role, officeNumber) {
+    super(firstname, lastname, id, email, role);
+    this.officeNumber = officeNumber;     
   }
+
   getRole() {
     console.log('this', this);
-    console.log(`This Person's Role: ${this.role}`);
-     
-    };   
+    console.log(`This Person's Role: ${this.role}`);  
+    }; 
+  getPhone() {
+    console.log(`This is the direct line: ${this.officeNumber}`)
+  }     
 }
 
-const mgr = new Manager ("jack", 096, "jack@gmail.com", "Manager", "847-555-1212") 
+// const mgr = new Manager ("jack", 096, "jack@gmail.com", "Manager", "847-555-1212") 
 
-mgr.printInfo(); 
-mgr.getRole()
+// mgr.printInfo(); 
+// mgr.getRole();
+// mgr.getPhone();
   
 
 // `Manager` will also have:

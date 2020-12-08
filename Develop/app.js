@@ -36,7 +36,7 @@ const render = require("./lib/htmlRenderer");
 
 /* create a cli interface that takes in information on 
 manager, engineer, intern.  using inquirer.
-install npm
+install npm 
 install inquirer
 install jest
 create the questions for each person type. use if else statements.  
@@ -44,4 +44,82 @@ if manager else enginer else intern else employee.
 for each of these classes there will be information collected (user inputs)
 
 the information will create an HTML page that displays the information about the team
-we would need to run jest to test the information.  
+we would need to run jest to test the information.  */
+
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      message: 'What is your first name?',
+      name: 'firstname',
+    },
+    {
+        type: 'input',
+        message: 'What is your last name?',
+        name: 'lastname',
+      },
+
+    {
+        type: 'input',
+        message: 'What is your employee ID?',
+        name: 'id',
+      },
+
+    {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+    },
+    {
+        type: 'checkbox',
+        message: 'What is your current role? ',
+        name: 'role',
+        choices: [
+            {
+              name: 'Manager',
+            },
+            {
+              name: 'Engineer',
+            },
+            {
+               name: 'Intern',
+            },
+        ],
+    }, 
+    ])
+
+    .then((response) => {
+   
+      if (response.role == "Manager") {
+          inquirer.prompt ({
+            type: 'input',
+            message: 'What is your Office Number?',
+            name: 'officeNumber',  
+          })
+      .then((respnse2) => {
+        console.log('response', response) 
+      })   
+      } 
+       else if (response.role == "Engineer") {
+            inquirer.prompt ({
+            type: 'input',
+            message: 'What is your Git Hub User Name?',
+            name: 'github',  
+          })
+      .then((respnse2) => {
+            console.log('response', response) 
+          })      
+
+       } 
+       else if (response.role == "Intern"){
+            inquirer.prompt ({
+            type: 'input',
+            message: 'What is your School?',
+            name: 'school',  
+          })
+      .then((respnse2) => {
+            console.log('response', response) 
+          })     
+       }
+    //    console.log('response', response) 
+    }) 
