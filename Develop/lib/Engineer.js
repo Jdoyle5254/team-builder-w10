@@ -8,11 +8,13 @@ class Engineer extends Employee {
          
   };
   getGitHub() {
-    console.log('this', this);
-    console.log(`This person's GitHub: https://github.com/${this.github}`);
+    return this.github;
+    // console.log(`This person's GitHub: https://github.com/${this.github}`);
      
     };   
 }
+
+module.exports = Engineer; 
 
 // const eng = new Engineer ("jack", 096, "jack@gmail.com", "Engineer", "jackgithub") 
 

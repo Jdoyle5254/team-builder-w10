@@ -45,7 +45,7 @@ for each of these classes there will be information collected (user inputs)
 
 the information will create an HTML page that displays the information about the team
 we would need to run jest to test the information.  */
-
+var employees = [];
 inquirer
   .prompt([
     {
@@ -98,6 +98,9 @@ inquirer
           })
       .then((respnse2) => {
         console.log('response', response) 
+        employees.push(new Manager (response.firstname, response.lastname, response.id, response.email, response.officeNumber));
+        let newMgr = render(employees);
+        console.log (newMgr); 
       })   
       } 
        else if (response.role == "Engineer") {
@@ -107,7 +110,8 @@ inquirer
             name: 'github',  
           })
       .then((respnse2) => {
-            console.log('response', response) 
+            console.log('response', response);  
+            const eng = new Engineer(response.firstname, response.lastname, response.id, response.email, response.github);
           })      
 
        } 
@@ -118,8 +122,17 @@ inquirer
             name: 'school',  
           })
       .then((respnse2) => {
-            console.log('response', response) 
+            console.log('response', response);
+            const inter = new Intern(response.firstname, response.lastname, response.id, response.email, response.school); 
           })     
        }
     //    console.log('response', response) 
     }) 
+
+    // const mgr = new Manager(response.firstname, response.lastname, response.id, response.email, response.officeNumber);
+    // mgr.render();
+
+    //eng.render()
+
+
+    

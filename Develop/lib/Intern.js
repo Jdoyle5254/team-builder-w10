@@ -8,11 +8,12 @@ class Intern extends Employee {
      
   }
   getSchool() {
-    console.log('this', this);
-    console.log(`This person's School: ${this.school}`);
-     
+    return this.school; 
+    // console.log(`This person's School: ${this.school}`); 
     };   
 }
+
+module.exports = Intern; 
 
 // const int = new Intern ("jack", 096, "jack@gmail.com", "Intern", "Northwestern") 
 

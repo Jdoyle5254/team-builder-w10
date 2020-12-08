@@ -8,13 +8,16 @@ class Manager extends Employee {
   }
 
   getRole() {
-    console.log('this', this);
-    console.log(`This Person's Role: ${this.role}`);  
+    return this.role;
+    // console.log(`This Person's Role: ${this.role}`);  
     }; 
   getPhone() {
-    console.log(`This is the direct line: ${this.officeNumber}`)
+    return this.officeNumber; 
+    // console.log(`This is the direct line: ${this.officeNumber}`)
   }     
 }
+
+module.exports = Manager; 
 
 // const mgr = new Manager ("jack", 096, "jack@gmail.com", "Manager", "847-555-1212") 
 
