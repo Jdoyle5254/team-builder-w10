@@ -22,7 +22,7 @@ class Employee {
       // console.log(`This Person's Role: ${this.role}`);
              }    
     getName() {
-      return this.firstname + " " + this.lastname;
+      return this.firstName + " " + this.lastName;
     }
     getId() {
       return this.id;

@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "./output/");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
@@ -92,18 +92,26 @@ inquirer
 
     .then((response) => {
    
-      if (response.role == "Manager") {
+      if (response.role[0] == "Manager") {
           inquirer.prompt ({
             type: 'input',
             message: 'What is your Office Number?',
             name: 'officeNumber',  
           })
-      .then((respnse2) => {
-        console.log('response', response) 
-        employees.push(new Manager (response.firstname, response.lastname, response.id, response.email, response.officeNumber));
-        let newMgr = render(employees);
-        console.log (newMgr); 
-      })   
+      .then((response2) => {
+        console.log('response', response, response2) 
+        let newMgr = new Manager (response.firstname, response.lastname, response.id, response.email, response.role[0], response2.officeNumber);
+        console.log(newMgr)
+         
+        employees.push(newMgr)
+        let mgr1 = render(employees);
+          
+        fs.writeFile(outputPath, mgr1, (err) => {          
+              if (err) throw err; 
+          });
+      });
+  
+  
       } 
        else if (response.role == "Engineer") {
             inquirer.prompt ({
@@ -123,9 +131,10 @@ inquirer
             message: 'What is your School?',
             name: 'school',  
           })
-      .then((respnse2) => {
-            console.log('response', response);
+      .then((response2) => {
+            console.log('response', response,);
             const inter = new Intern(response.firstname, response.lastname, response.id, response.email, response.school); 
+            console.log(response.officeNumber)
           })     
        }
     //    console.log('response', response) 
