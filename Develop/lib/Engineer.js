@@ -17,6 +17,7 @@ class Engineer extends Employee {
 const eng = new Engineer ("jack", 096, "jack@gmail.com", "Engineer", "jackgithub") 
 
 eng.printInfo();
+eng.getRole();
 eng.getGitHub(); 
 
 // `Engineer` will also have:

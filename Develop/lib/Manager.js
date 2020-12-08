@@ -1,23 +1,27 @@
 // TODO: Write code to define and export the Manager class. HINT: This class should inherit from Employee.
-const Shape = require("./shape");
+const Employee = require("./Employee");
 
-class Rectangle extends Shape {
-  constructor(sideA, sideB) {
-    const area = sideA * sideB;
-    const perimeter = sideA * 2 + sideB * 2;
-
-    super(area, perimeter);
-    this.sideA = sideA;
-    this.sideB = sideB;
+class Manager extends Employee {
+  constructor(name, id, email, role, officeNumber) {
+    super(name, id, email, role);
+    this.officeNumber = officeNumber;
+     
   }
+  getRole() {
+    console.log('this', this);
+    console.log(`This Person's Role: ${this.role}`);
+     
+    };   
 }
 
-const rectangle = new Rectangle(12, 9);
-rectangle.printInfo();
- 
+const mgr = new Manager ("jack", 096, "jack@gmail.com", "Manager", "847-555-1212") 
 
-`Manager` will also have:
+mgr.printInfo(); 
+mgr.getRole()
+  
 
-  * officeNumber
+// `Manager` will also have:
 
-  * getRole() // Overridden to return 'Manager'
+//   * officeNumber
+
+//   * getRole() // Overridden to return 'Manager'

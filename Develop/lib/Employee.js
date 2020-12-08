@@ -15,6 +15,12 @@ class Employee {
       console.log(`This person's id  ${this.id}`);
       console.log(`This person's email is ${this.email}`);
       }
+       
+    getRole() {
+      console.log('this', this);
+      console.log(`This Person's Role: ${this.role}`);
+         
+        }    
     }
   
   
@@ -22,6 +28,7 @@ class Employee {
 
   const emp = new Employee ("Jen", 001, "jd@gmail.com", "employee")
   emp.printInfo()  
+  emp.getRole();
 
   // * name
   // * id

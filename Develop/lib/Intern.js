@@ -7,21 +7,28 @@ class Intern extends Employee {
     this.school = school;
      
   }
+  getSchool() {
+    console.log('this', this);
+    console.log(`This person's School: ${this.school}`);
+     
+    };   
 }
 
 const int = new Intern ("jack", 096, "jack@gmail.com", "Intern", "Northwestern") 
 
 int.printInfo();
-int.
+int.getRole();
+int.getSchool(); 
+
   
 
 
  
 
-In addition to `Employee`'s properties and methods, `Intern` will also have:
+// In addition to `Employee`'s properties and methods, `Intern` will also have:
 
-  * school 
+//   * school 
 
-  * getSchool()
+//   * getSchool()
 
-  * getRole() // Overridden to return 'Intern'
+//   * getRole() // Overridden to return 'Intern'
