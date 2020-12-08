@@ -11,8 +11,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+// //   Write code to use inquirer to gather information about the development team members,
+// and to create objects for each team member (using the correct classes as blueprints!)   
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -45,6 +45,8 @@ for each of these classes there will be information collected (user inputs)
 
 the information will create an HTML page that displays the information about the team
 we would need to run jest to test the information.  */
+
+
 var employees = [];
 inquirer
   .prompt([
