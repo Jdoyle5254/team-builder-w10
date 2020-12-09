@@ -56,115 +56,138 @@ var employees = [];
 // var restart = function() {
  
     inquirer
-  .prompt([
-    {
-      type: 'input',
-      message: 'What is your first name?',
-      name: 'firstname',
-    },
-    {
-        type: 'input',
-        message: 'What is your last name?',
-        name: 'lastname',
-      },
-
-    {
-        type: 'input',
-        message: 'What is your employee ID?',
-        name: 'id',
-      },
-
-    {
-        type: 'input',
-        message: 'What is your email address?',
-        name: 'email',
-    },
-    {
-        type: 'checkbox',
-        message: 'What is your current role? ',
-        name: 'role',
-        choices: [
-            {
-              name: 'Manager',
-            },
-            {
-              name: 'Engineer',
-            },
-            {
-               name: 'Intern',
-            },
-        ],
-    }, 
-    ])
-
+        .prompt([    
+      {
+    type: 'checkbox',
+    message: 'What type of employee are you setting up?',
+    name: 'role',
+    choices: [
+        {
+          name: 'Manager',
+        },
+        {
+          name: 'Engineer',
+        },
+        {
+           name: 'Intern',
+        },
+    ],
+}, 
+])
     .then((response) => {
-   
+
       if (response.role[0] == "Manager") {
-          inquirer.prompt ({
-            type: 'input',
-            message: 'What is your Office Number?',
-            name: 'officeNumber',  
-          },
+          inquirer.prompt  ([ 
+            {
+                type: 'input',
+                message: 'What is the employee first name?',
+                name: 'firstname',
+              },
+              {
+                  type: 'input',
+                  message: 'What is the employee last name?',
+                  name: 'lastname',
+                },
+              {
+                  type: 'input',
+                  message: 'What is the employee ID?',
+                  name: 'id',
+                },
+              {
+                  type: 'input',
+                  message: 'What is the employee email address?',
+                  name: 'email',
+              },
+              {
+                type: 'input',
+                message: 'What is your Office Number?',
+                name: 'officeNumber',  
+                },
+                {
+                type: 'confirm',
+                message: 'Do you want to add another employee?',
+                name: 'addemp',
+                },
+          ])    
+            
+      }
+    //   console.log("questions:", response2);     
+    })
+//     //    if yes => restart code  else see below. 
+   
+//       .then(() => {
+//         console.log('response:', response) 
+//         let newMgr = new Manager (response.firstname, response.lastname, response.id, response.email, response.role[0], response2.officeNumber);
+//         console.log(newMgr)
+     
+//         employees.push(newMgr)
+//         let mgr1 = render(employees);
+      
+//         fs.writeFile(outputPath, mgr1, (err) => {          
+//               if (err) throw err; 
+//           })
 
-          {type: 'confirm',
-          message: 'Do you want to add another employee?',
-          name: 'addemp',
-          },
-          )
-       
-       
-      .then((response2) => {
-        console.log('response', response, response2) 
-        let newMgr = new Manager (response.firstname, response.lastname, response.id, response.email, response.role[0], response2.officeNumber);
-        console.log(newMgr)
-         
-        employees.push(newMgr)
-        let mgr1 = render(employees);
-          
-        fs.writeFile(outputPath, mgr1, (err) => {          
-              if (err) throw err; 
-          });
-
-        // if (response.addemp == true) {
-        //   restart ();
-        // }  
-      });
-  
-  
-      } 
-       else if (response.role == "Engineer") {
-            inquirer.prompt ({
-            type: 'input',
-            message: 'What is your Git Hub User Name?',
-            name: 'github',  
-          })
-      .then((response2) => {
-            console.log('response', response);  
-            const eng = new Engineer(response.firstname, response.lastname, response.id, response.email, response2.github);
-          })      
-
-       } 
-       else if (response.role == "Intern"){
-            inquirer.prompt ({
-            type: 'input',
-            message: 'What is your School?',
-            name: 'school',  
-          })
-      .then((response2) => {
-            console.log('response', response,);
-            const inter = new Intern(response.firstname, response.lastname, response.id, response.email, response2.school); 
-            console.log(response2.school)
-          })     
-       }
- 
-    }) 
-
-// }
-
-    // const mgr = new Manager(response.firstname, response.lastname, response.id, response.email, response.officeNumber);
-    // mgr.render();
-
-    //eng.render()
+// // //         if (response.addemp == true) {
+// // //           restart ();
+// // //         }  
+    //   });
 
 
     
+
+
+
+//        else if (response.role == "Engineer") {
+//             inquirer.prompt ({
+//             type: 'input',
+//             message: 'What is your Git Hub User Name?',
+//             name: 'github',  
+//           })
+//       .then((response2) => {
+//             console.log('response', response);  
+//             const eng = new Engineer(response.firstname, response.lastname, response.id, response.email, response2.github);
+//           })      
+
+//        } 
+//        else if (response.role == "Intern"){
+//             inquirer.prompt ({
+//             type: 'input',
+//             message: 'What is your School?',
+//             name: 'school',  
+//           })
+//       .then((response2) => {
+//             console.log('response', response,);
+//             const inter = new Intern(response.firstname, response.lastname, response.id, response.email, response2.school); 
+//             console.log(response2.school)
+//           })     
+//        }
+ 
+//     }) 
+
+// }
+
+//     const mgr = new Manager(response.firstname, response.lastname, response.id, response.email, response.officeNumber);
+//     mgr.render();
+
+//     eng.render()
+
+//  {
+//    type: 'input',
+//    message: 'What is your first name?',
+//    name: 'firstname',
+//  },
+//  {
+//      type: 'input',
+//      message: 'What is your last name?',
+//      name: 'lastname',
+//    },
+//  {
+//      type: 'input',
+//      message: 'What is your employee ID?',
+//      name: 'id',
+//    },
+//  {
+//      type: 'input',
+//      message: 'What is your email address?',
+//      name: 'email',}
+
