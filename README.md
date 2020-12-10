@@ -37,6 +37,8 @@ To see the application run, please check out this video:
 https://drive.google.com/file/d/1-cMK3oTrry4Z-8lvPFz0kMlfLcv0FL4P/view
 
 This is how the information is displayed from the team.html file: 
+![Team Page](https://user-images.githubusercontent.com/69594945/101822831-8c472680-3aef-11eb-981e-a087f7b63ba0.PNG)
+
 
 
 ## Tests
