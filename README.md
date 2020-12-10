@@ -10,6 +10,8 @@
   8. [Questions](#Questions) 
 
 ## Description
+This app is to create a team roster in HTML, based on command line user inputs.  Then a full roster of Manager, Intern, and Engineer can be displayed.  
+
 
 ## Installation
 
