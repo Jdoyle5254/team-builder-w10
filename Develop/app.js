@@ -100,7 +100,7 @@ function questionStart() {
         name: 'firstname',
       },
       {
-        type: 'input'
+        type: 'input',
         message: 'What is the employees last name?',
         name: 'lastname',
       },

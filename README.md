@@ -9,7 +9,7 @@
   7. [Questions](#Questions) 
 
 ## Description
-This app is to create a team roster in HTML, based on command line user inputs.  Then a full roster of Manager, Intern, and Engineer can be displayed.  
+This app can be used to create a team roster in HTML, based on command line user responses to a series of questions that creates a short employee profile based on the role of the employee: Manager, Engineer, Intern.  Once all the inputs have been completed, then a full roster of Manager, Intern, and Engineer can be displayed.  
 
 
 ## Installation
@@ -22,6 +22,21 @@ This will take you to VS Code and you will be in the repository on
 create package.json using `npm init`.  The dependencies for this program are Inquirer and Jest.    
 
 ## Usage
+Once installed, navigate to the folder with app.js and run Node to start the progrom in the command line.  The user should follow the prompts and answer the questions accordingly: 
+Employee Name
+Email
+Employee Number
+Select the role of the employee:  Manager, Engineer, Intern
+If intern: School
+If engineer: GitHub
+If manager: office number
+
+The user can continue to add as many roles/employees as needed, once done, on the final question, respond 'N' and the information input will print to the team.html in the output folder.       
+
+To see the application run, please check out this video:
+https://drive.google.com/file/d/1-cMK3oTrry4Z-8lvPFz0kMlfLcv0FL4P/view
+
+This is how the information is displayed from the team.html file: 
 
 
 ## Tests
