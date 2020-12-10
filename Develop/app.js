@@ -11,49 +11,12 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
-// //   Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)   
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!   
-
-/* once one employee is updated should ask a question yes no do you want to enter another employee.   If true, then the questions should start from the beginning (for loop? while loop?  for each?)
-
-Also employees need to be appended to the page of the main, not overwritten.  
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
-
-/* create a cli interface that takes in information on 
-manager, engineer, intern.  using inquirer.
-install npm 
-install inquirer
-install jest
-create the questions for each person type. use if else statements.  
-if manager else enginer else intern else employee.   
-for each of these classes there will be information collected (user inputs)
-
-the information will create an HTML page that displays the information about the team
-we would need to run jest to test the information.  */
-
+// I created helper functions to call the specific role type questions for manager, engineer intern
 function manager(response) {
   inquirer.prompt({
     type: 'input',
-    message: 'What is your Office Number?',
+    message: 'What is the Manager Office Number?',
     name: 'officeNumber',
   },
 
@@ -72,7 +35,7 @@ function manager(response) {
 function engineer(response) {
   inquirer.prompt({
     type: 'input',
-    message: 'What is your Git Hub User Name?',
+    message: 'What is Engineer Git Hub User Name?',
     name: 'github',
   })
     .then((response2) => {
@@ -87,7 +50,7 @@ function engineer(response) {
 function intern(response) {
   inquirer.prompt({
     type: 'input',
-    message: 'What is your School?',
+    message: 'What is the Intern current School?',
     name: 'school',
   })
     .then((response2) => {
@@ -100,6 +63,8 @@ function intern(response) {
 
 
 }
+// this function is the final prompt to add another employee.  If Yes or No.  If yes it will return to 
+// the start of the questions.  If no it will print the created employee objects to the HTML page.
 function addemp() {
 inquirer.prompt([
   {
@@ -123,38 +88,37 @@ inquirer.prompt([
   })
 }
 
-
+// here I created the empty array for the employee objects to get pushed to
 var employees = [];
-// var addEmployee = true;
-// var restart = function() {
+// This function then runs the 'employee' object questions
 function questionStart() {
   inquirer
     .prompt([
       {
         type: 'input',
-        message: 'What is your first name?',
+        message: 'What is the employees first name?',
         name: 'firstname',
       },
       {
-        type: 'input',
-        message: 'What is your last name?',
+        type: 'input'
+        message: 'What is the employees last name?',
         name: 'lastname',
       },
 
       {
         type: 'input',
-        message: 'What is your employee ID?',
+        message: 'What is the employee ID number?',
         name: 'id',
       },
 
       {
         type: 'input',
-        message: 'What is your email address?',
+        message: 'What is the employee email address?',
         name: 'email',
       },
       {
         type: 'checkbox',
-        message: 'What is your current role? ',
+        message: 'What is the employee current role? ',
         name: 'role',
         choices: [
           {
