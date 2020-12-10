@@ -6,12 +6,13 @@ class Engineer extends Employee {
     super(firstname, lastname, id, email, role);
     this.github = github;
          
-  };
-  getGitHub() {
+  }
+
+  getGithub() {
     return this.github;
     // console.log(`This person's GitHub: https://github.com/${this.github}`);
      
-    };   
+    }
 }
 
 module.exports = Engineer; 

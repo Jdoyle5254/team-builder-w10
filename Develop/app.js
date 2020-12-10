@@ -50,144 +50,143 @@ for each of these classes there will be information collected (user inputs)
 the information will create an HTML page that displays the information about the team
 we would need to run jest to test the information.  */
 
+function manager(response) {
+  inquirer.prompt({
+    type: 'input',
+    message: 'What is your Office Number?',
+    name: 'officeNumber',
+  },
+
+  )
+
+    .then((response2) => {
+      console.log('response', response, response2)
+      let newMgr = new Manager(response.firstname, response.lastname, response.id, response.email, response.role[0], response2.officeNumber);
+      console.log(newMgr);
+      employees.push(newMgr);
+      addemp(); 
+
+    })
+}
+
+function engineer(response) {
+  inquirer.prompt({
+    type: 'input',
+    message: 'What is your Git Hub User Name?',
+    name: 'github',
+  })
+    .then((response2) => {
+      console.log('response', response);
+      const newEng = new Engineer(response.firstname, response.lastname, response.id, response.email, response.role[0], response2.github);
+      employees.push(newEng);
+      addemp();
+    })
+
+}
+
+function intern(response) {
+  inquirer.prompt({
+    type: 'input',
+    message: 'What is your School?',
+    name: 'school',
+  })
+    .then((response2) => {
+      console.log('response', response,);
+      const newInt = new Intern(response.firstname, response.lastname, response.id, response.email, response.role[0], response2.school);
+      console.log(newInt);
+      employees.push(newInt);
+      addemp();
+    })
+
+
+}
+function addemp() {
+inquirer.prompt([
+  {
+    type: 'confirm',
+    message: 'Do you want to add another employee?',
+    name: 'addemp',
+  },
+],
+)
+  .then((response2) => {
+    if (response2.addemp == true) {
+      questionStart()
+    } 
+    else {
+      fs.writeFile(outputPath, render(employees), (err) => {
+        if (err) throw err;
+      });
+
+
+    }
+  })
+}
+
 
 var employees = [];
 // var addEmployee = true;
 // var restart = function() {
- 
-    inquirer
-        .prompt([    
+function questionStart() {
+  inquirer
+    .prompt([
       {
-    type: 'checkbox',
-    message: 'What type of employee are you setting up?',
-    name: 'role',
-    choices: [
-        {
-          name: 'Manager',
-        },
-        {
-          name: 'Engineer',
-        },
-        {
-           name: 'Intern',
-        },
-    ],
-}, 
-])
+        type: 'input',
+        message: 'What is your first name?',
+        name: 'firstname',
+      },
+      {
+        type: 'input',
+        message: 'What is your last name?',
+        name: 'lastname',
+      },
+
+      {
+        type: 'input',
+        message: 'What is your employee ID?',
+        name: 'id',
+      },
+
+      {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+      },
+      {
+        type: 'checkbox',
+        message: 'What is your current role? ',
+        name: 'role',
+        choices: [
+          {
+            name: 'Manager',
+          },
+          {
+            name: 'Engineer',
+          },
+          {
+            name: 'Intern',
+          },
+        ],
+      },
+    ])
+
     .then((response) => {
 
       if (response.role[0] == "Manager") {
-          inquirer.prompt  ([ 
-            {
-                type: 'input',
-                message: 'What is the employee first name?',
-                name: 'firstname',
-              },
-              {
-                  type: 'input',
-                  message: 'What is the employee last name?',
-                  name: 'lastname',
-                },
-              {
-                  type: 'input',
-                  message: 'What is the employee ID?',
-                  name: 'id',
-                },
-              {
-                  type: 'input',
-                  message: 'What is the employee email address?',
-                  name: 'email',
-              },
-              {
-                type: 'input',
-                message: 'What is your Office Number?',
-                name: 'officeNumber',  
-                },
-                {
-                type: 'confirm',
-                message: 'Do you want to add another employee?',
-                name: 'addemp',
-                },
-          ])    
-            
+        manager(response)
       }
-    //   console.log("questions:", response2);     
+      else if (response.role[0] == "Engineer") {
+        engineer(response)
+      }
+      else if (response.role[0] == "Intern") {
+        intern(response)
+      }
+
     })
-//     //    if yes => restart code  else see below. 
-   
-//       .then(() => {
-//         console.log('response:', response) 
-//         let newMgr = new Manager (response.firstname, response.lastname, response.id, response.email, response.role[0], response2.officeNumber);
-//         console.log(newMgr)
-     
-//         employees.push(newMgr)
-//         let mgr1 = render(employees);
-      
-//         fs.writeFile(outputPath, mgr1, (err) => {          
-//               if (err) throw err; 
-//           })
+  }
 
-// // //         if (response.addemp == true) {
-// // //           restart ();
-// // //         }  
-    //   });
-
-
-    
+  questionStart()
 
 
 
-//        else if (response.role == "Engineer") {
-//             inquirer.prompt ({
-//             type: 'input',
-//             message: 'What is your Git Hub User Name?',
-//             name: 'github',  
-//           })
-//       .then((response2) => {
-//             console.log('response', response);  
-//             const eng = new Engineer(response.firstname, response.lastname, response.id, response.email, response2.github);
-//           })      
-
-//        } 
-//        else if (response.role == "Intern"){
-//             inquirer.prompt ({
-//             type: 'input',
-//             message: 'What is your School?',
-//             name: 'school',  
-//           })
-//       .then((response2) => {
-//             console.log('response', response,);
-//             const inter = new Intern(response.firstname, response.lastname, response.id, response.email, response2.school); 
-//             console.log(response2.school)
-//           })     
-//        }
- 
-//     }) 
-
-// }
-
-//     const mgr = new Manager(response.firstname, response.lastname, response.id, response.email, response.officeNumber);
-//     mgr.render();
-
-//     eng.render()
-
-//  {
-//    type: 'input',
-//    message: 'What is your first name?',
-//    name: 'firstname',
-//  },
-//  {
-//      type: 'input',
-//      message: 'What is your last name?',
-//      name: 'lastname',
-//    },
-//  {
-//      type: 'input',
-//      message: 'What is your employee ID?',
-//      name: 'id',
-//    },
-//  {
-//      type: 'input',
-//      message: 'What is your email address?',
-//      name: 'email',}
 
